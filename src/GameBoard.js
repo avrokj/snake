@@ -7,6 +7,7 @@ class GameBoard {
   }
 
   draw(snakeCoordinates) {
+    this.gameBoardTable.innerHTML = "";
     for (let i = 0; i < this.boardSize; i++) {
       const rowTr = document.createElement("tr");
 
