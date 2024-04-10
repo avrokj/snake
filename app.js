@@ -6,9 +6,18 @@ const boardSize = 20;
 
 const gameBoard = new GameBoard(boardSize);
 const snake = new Snake(boardSize);
-const food = new Food(boardSize, snake.getCoordinates());
+let food = new Food(boardSize, snake.getCoordinates());
 
 const intervalId = setInterval(() => {
-  snake.move();
-  gameBoard.draw(snake.getCoordinates(), food);
+  snake.move(food);
+  const snakeCoordinates = snake.getCoordinates();
+  const foodCoordinates = food.y + "-" + food.x;
+  if (foodCoordinates == snakeCoordinates[0]) {
+    // uus toit
+    food = new Food(boardSize, snakeCoordinates);
+  } else {
+    //
+    snake.pop();
+  }
+  gameBoard.draw(snakeCoordinates, food);
 }, 500);
