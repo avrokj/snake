@@ -34,7 +34,7 @@ class Snake {
     return this.coordinates;
   }
 
-  move(boardSize) {
+  calculateNewHead(boardSize) {
     let [y, x] = this.coordinates[0].split("-");
     let c;
 
@@ -70,7 +70,10 @@ class Snake {
         break;
     }
 
-    c = y + "-" + x;
+    return y + "-" + x;
+  }
+
+  unshift(c) {
     this.coordinates.unshift(c);
   }
 

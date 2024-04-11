@@ -28,3 +28,40 @@ body {
 .food {
   background-color: red;
 }
+
+.hidden {
+    display: none;
+}
+#game-over {
+    position: absolute; 
+    background-color: #fff; 
+    padding: 2rem;
+    font-size: 3rem; 
+    font-family: 'Courier New', Courier, monospace; 
+    font-weight: 700;
+    text-align: center;
+}
+
+.btn {  
+    margin-top: 2rem;  
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    padding: 17px 30px;
+    border: 0;
+    color: #fff;
+    font-size: 17.5px;
+    border: 2px solid transparent;
+    border-color: #000;
+    color: #000;
+    background: transparent;
+    font-weight: 800;
+    line-height: 30px;
+    transition: background,color .1s ease-in-out;
+}
+.btn:hover {
+        background-color: #000;
+        color: #fff;
+    }    
+}

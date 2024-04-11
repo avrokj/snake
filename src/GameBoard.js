@@ -32,6 +32,11 @@ class GameBoard {
       this.gameBoardTable.append(rowTr);
     }
   }
+
+  gameOver() {
+    const gameOverDiv = document.getElementById("game-over");
+    gameOverDiv.classList.remove("hidden");
+  }
 }
 
 export { GameBoard };

@@ -9,9 +9,18 @@ const snake = new Snake(boardSize);
 let food = new Food(boardSize, snake.getCoordinates());
 
 const intervalId = setInterval(() => {
-  snake.move(boardSize);
+  const newHead = snake.calculateNewHead(boardSize);
+
   const snakeCoordinates = snake.getCoordinates();
   const foodCoordinates = food.y + "-" + food.x;
+
+  if (snakeCoordinates.includes(newHead)) {
+    gameBoard.gameOver();
+    clearInterval(intervalId);
+  } else {
+    snake.unshift(newHead);
+  }
+
   if (foodCoordinates == snakeCoordinates[0]) {
     // uus toit
     food = new Food(boardSize, snakeCoordinates);
