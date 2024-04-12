@@ -8,8 +8,14 @@
 </head>
 <body>
   <div id="container">
-    <div id="game-over" class="hidden">Game Over!<br/>
-        <button class="btn" onClick="history.go(0);">Try again?</button>
+    <div class="record">
+        <span>Rekord:&nbsp;</span><div id="high-score"></div>
+    </div>
+    <div class="score">
+        <span>Skoor:&nbsp;</span><div id="score"></div>
+    </div>
+    <div id="game-over" class="hidden">Mäng läbi!<br/>
+        <button class="btn" onClick="history.go(0);">Proovi uuesti?</button>
     </div>
     <table id="game-board"></table>
   </div>
