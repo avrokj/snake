@@ -4,6 +4,10 @@ class Score {
 
   constructor() {
     this.update();
+    const highScore = localStorage.getItem("snake-high-score");
+    if (highScore) {
+      this.highScore = highScore;
+    }
     this.updateHighScore();
   }
 
@@ -16,9 +20,15 @@ class Score {
     scoreDiv.innerHTML = this.score;
   }
 
+  saveHighScore() {
+    if (this.score > this.highScore) {
+      localStorage.setItem("snake-high-score", this.score);
+    }
+  }
+
   updateHighScore() {
-    const scoreDiv = document.getElementById("high-score");
-    scoreDiv.innerHTML = this.highScore;
+    const highScoreDiv = document.getElementById("high-score");
+    highScoreDiv.innerText = this.highScore;
   }
 }
 

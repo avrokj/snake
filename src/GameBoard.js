@@ -18,8 +18,8 @@ class GameBoard {
 
         if (snakeCoordinates.includes(id)) {
           if (id == snakeCoordinates[0]) {
-            cellTd.innerText = "🤪";
-            cellTd.classList.add("snake");
+            // cellTd.innerText = "🤪";
+            cellTd.classList.add("snake-img");
           } else {
             cellTd.innerText = "🖕";
             cellTd.classList.add("snake");

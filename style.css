@@ -2,6 +2,13 @@
 body {
   margin: 0;
   font-family: 'Courier New', Courier, monospace;
+  background-color: #ddd;
+  background-image: url('https://media.voog.com/0000/0048/0770/photos/DSCF2200_huge.jpg');
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fafafa;
 }
 
 #container {
@@ -16,71 +23,145 @@ body {
 
 #game-board {
   border-collapse: collapse;
+  border: 2px solid;
+  background-color: #fafafa;
+  box-shadow: 0px 0px 16px #666;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzZraW5jY3liZWN3NjVsaTVxdDR1YmlibnVwZ3g3bzZwemVyczgyciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WPmzeHM3kQCT9FZsWX/giphy.gif');
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+
 #game-board td {
-  border:  #ccc solid 0.1px;
-  width: 16px;
-  height: 16px;
+  border: 0.1px solid rgba(128, 128, 128,.1);
+  width: 24px;
+  height: 24px;
   overflow: hidden;
   padding: 0;
 }
 
 .snake {
-    font-size: 12px;
+    font-size: 16px;
     border-radius: 40%;
-    background-color: plum;
+    background-color: rgba(255, 181, 181,.8);
+}
+.snake-img {
+  background-image:  linear-gradient(rgba(255, 181, 181,.2), rgba(255, 181, 181,.2)), url('https://media.voog.com/0000/0048/0770/photos/Raiko.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid red;
+  border-radius: 10px;
 }
 
 .food {
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 18px;
+  line-height: 18px;
 }
 
 .hidden {
     display: none;
 }
+
+.data {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 90%;
+    padding: 1rem .5rem;
+    max-width: 480px;
+    background-color: rgba(0,0,0,.5);
+    border: 2px solid #fff;
+    border-bottom: none;
+    border-radius: 1rem 1rem 0 0;
+}
+
 .record {
     display: flex;
     position: relative;
     font-size: .9rem;
+    justify-content: right;
 }
+.level {
+    display: flex;
+    position: relative;
+    font-size: .9rem;
+}
+
 .score {
     display: flex;
     position: relative;
-    padding: 1rem;
     font-weight: 600;
+    justify-content: center;
 }
+
 #game-over {
     position: absolute; 
-    background-color: #fff; 
+    background-image: url('https://media.voog.com/0000/0048/0770/photos/DSCF2200_huge.jpg');
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
     padding: 2rem;
     font-size: 3rem; 
     font-family: 'Courier New', Courier, monospace; 
     font-weight: 700;
     text-align: center;
+    opacity: .9;
+    box-shadow: 0px 0px 16px #ff0000;
 }
 
-.btn {  
-    margin-top: 2rem;  
+
+.arrow-key-container {
     display: inline-block;
-    outline: 0;
     text-align: center;
-    cursor: pointer;
-    padding: 17px 30px;
-    border: 0;
+    transform: translate3d(0,0,0);
+  }
+  .arrow-key {
+    align-items: center;
+    background: rgba(0,0,0,.5);
+    border-radius: 6px;
+    box-shadow: -1px 1px 0 #999, -2px 2px 0 #999, -3px 3px 0 #999, -4px 4px 0 #999;
     color: #fff;
-    font-size: 17.5px;
-    border: 2px solid transparent;
-    border-color: #000;
-    color: #000;
-    background: transparent;
-    font-weight: 800;
-    line-height: 30px;
-    transition: background,color .1s ease-in-out;
-}
-.btn:hover {
-        background-color: #000;
-        color: #fff;
-    }    
-}
+    display: inline-flex;
+    font-size: 30px;
+    font-weight: bold;
+    height: 65px;
+    justify-content: center;
+    margin: 5px;
+    transform: translate3d(0, 0, 0);
+    transition: box-shadow .1s linear, transform .1s linear;
+    width: 65px;
+    &:active,&.press {
+      box-shadow: 0px 0px 0 #999, 0px 0px 0 #999, 0px 0px 0 #999, -1px 1px 0 #999;
+      transform: translate3d(-3px, 3px, 0);
+    }
+    &.left:before {
+      content: "\2190";
+    }
+    &.up:before {
+      content: "\2191";
+    }
+    &.down:before {
+      content: "\2193";
+    }
+    &.right:before {
+      content: "\2192";
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    #game-board td {
+        width: 16px;
+        height: 16px;
+      }
+      
+      .snake {
+          font-size: 12px;
+      }
+      
+      .food {
+        font-size: 12px;
+        line-height: 12px;
+      }
+  }

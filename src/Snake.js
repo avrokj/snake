@@ -28,6 +28,22 @@ class Snake {
           break;
       }
     });
+
+    up.addEventListener("click", () => {
+      this.direction = "u";
+    });
+
+    down.addEventListener("click", () => {
+      this.direction = "d";
+    });
+
+    left.addEventListener("click", () => {
+      this.direction = "l";
+    });
+
+    right.addEventListener("click", () => {
+      this.direction = "r";
+    });
   }
 
   getCoordinates() {
